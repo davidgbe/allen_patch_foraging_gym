@@ -6,6 +6,8 @@ These results can be visualized within ```/code/notebooks/session_visualization.
 
 Ex: ```python code/scripts/train_treadmill_agent.py --exp_title wsls_test```
 
+The gym itself can be found within ```/code/environments/treadmill_session.py```. See ```/code/scripts/train_treadmill_agent.py``` for demonstration of setup.
+
 
 ### Patch foraging gym
 
