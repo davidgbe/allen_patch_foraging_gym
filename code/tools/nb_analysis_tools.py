@@ -1,8 +1,8 @@
 import numpy as np
 import glob2 as glob
 import pickle
-from general import compressed_read
 import os
+from .general import compressed_read
 
 
 def load_numpy(data_path, averaging_size=1):
@@ -20,19 +20,21 @@ def load_numpy(data_path, averaging_size=1):
     return reduced_data
 
 
-def load_data(data_path, indices=[]):
+def load_data(data_path, indices=[], verbose=False):
 #     file_names = glob.glob(data_path)
     file_names = sorted(os.listdir(data_path))
-    print(file_names)
+    if verbose:
+        print(file_names)
     for fidx, file_name in enumerate(file_names):
         if fidx in indices or (len(indices) == 0 and fidx + 1 == len(file_names)):
             data_for_file = pickle.load(open(os.path.join(data_path, file_name), 'rb'))
             yield data_for_file
 
 
-def load_compressed_data(data_path, indices=[], all=False):
+def load_compressed_data(data_path, indices=[], all=False, verbose=False):
     file_names = sorted(os.listdir(data_path))
-    print(file_names)
+    if verbose:
+        print(file_names)
     for fidx, file_name in enumerate(file_names):
         if fidx in indices or (len(indices) == 0 and fidx + 1 == len(file_names)) or all:
             data_for_file = compressed_read(os.path.join(data_path, file_name))
