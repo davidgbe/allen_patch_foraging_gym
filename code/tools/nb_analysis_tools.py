@@ -57,6 +57,7 @@ def parse_behavioral_data(d, env_idx):
         'current_patch_start',
         'reward_bounds',
         'current_patch_num',
+        'reward_site_idx',
         'action',
         'current_position',
         'reward',
