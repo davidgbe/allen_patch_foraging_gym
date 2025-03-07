@@ -1,12 +1,18 @@
 ## Gym environment for patch foraging task 
 
 ### Usage
-This repository contains a script that runs a script within a gym environment that models the patch foraging task, `/code/scripts/train_treadmill_agent.py`. The output of this script is written to a directory in `/results`.
-These results can be visualized within `/code/notebooks/session_visualization.ipynb`.
+This repository contains a script that runs a script within a gym environment that models the patch foraging task, ```/code/scripts/train_treadmill_agent.py```. The output of this script is written to a directory in ```/results```.
+These results can be visualized within ```/code/notebooks/session_visualization.ipynb```.
 
-Ex: `python code/scripts/train_treadmill_agent.py --exp_title wsls_test`
+Ex: ```python code/scripts/train_treadmill_agent.py --exp_title wsls_test```
 
-**List of features logged by `train_treadmill_agent.py`**
+
+### Patch foraging gym
+
+Agents receive a `1 + num_patch_types`-dimensional set of observations. The first observation is the visual cue, which is 1 when the agent is inside a patch and 0 otherwise. The remaining observations are the one hot encoded odor cues, which indicate the agent is within a reward site of a particular patch. Agents navigate by either moving `1` or remaining `0`.
+
+
+**List of features logged by ```train_treadmill_agent.py```**
 
 | Feature name                         | Type                  | Description          |
 |------------------------------------|-----------------------------------|--------------------------------------|
